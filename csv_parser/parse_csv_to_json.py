@@ -3,7 +3,10 @@ import re
 from typing import Dict, List
 
 def parse_csv_to_json(filename: str) -> str:
-    pattern = re.compile(r'^(\w+\s?\(.*\)),([\w|\s\-ÁÉÍÓÚ]*),([\w|\s\-ÁÉÍÓÚ]*),.*$')
+    # first group KWT
+    # second group name
+    # third group description
+    pattern = re.compile(r'^"?([a-z|\s|A-Z]+\({1,3}.*\){1,3})"?,([\w\d\s\.\-º\(\)#áéíóúÁÉÍÓÚñÑ]*),([\w\d\s\.\-º\(\)#áéíóúÁÉÍÓÚñÑ]*),.*$')
     parsed: List[Dict[str, str]] = []
     # ./geofences_csv/Lotes -Torre de control- EX-EMILIAS.csv
     with open(filename, 'r') as f:
