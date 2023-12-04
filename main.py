@@ -9,7 +9,7 @@ def run():
     for f in filenames:
         parsed = parse_csv_to_json(f'{base_csv_dir}/{f}')
         formatted_name = f.replace('.csv', '')
-        write(parsed, f'{formatted_name}.json')
+        write(parsed, f'{formatted_name}')
 
 if __name__ == '__main__':
     run()
