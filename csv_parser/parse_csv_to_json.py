@@ -1,8 +1,6 @@
-from functools import reduce
 import json
 import re
 from typing import Dict, List
-import shapely.wkt
 
 from geofences_utils.parsers import parse_wkt_to_csv
 
